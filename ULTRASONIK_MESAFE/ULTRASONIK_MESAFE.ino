@@ -10,8 +10,8 @@ LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);
 /////hcrs04
 #include <NewPing.h>
 
-#define TRIGGER_PIN  12  // Arduino pin tied to trigger pin on the ultrasonic sensor.
-#define ECHO_PIN     11  // Arduino pin tied to echo pin on the ultrasonic sensor.
+#define TRIGGER_PIN  4  // Arduino pin tied to trigger pin on the ultrasonic sensor.
+#define ECHO_PIN     3  // Arduino pin tied to echo pin on the ultrasonic sensor.
 #define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
 
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.
@@ -31,6 +31,7 @@ void loop() {
  // Send ping, get distance in cm and print result (0 = outside set distance range)
 lcd.setCursor(0,0); //Defining positon to write from first row,first column .
 lcd.print( sonar.ping_cm());
+  Serial.println(sonar.ping_cm());
 lcd.setCursor(0,1);  //Defining positon to write from second row,first column .
 lcd.print("ENES SAHIN SAAT");
 
